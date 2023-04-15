@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="Calculator.js"></script>
+
+    <link rel="stylesheet" href="Calculator.css">
+    <title>Calculator</title>
+</head>
+<body>
+    <section class="calculator"> 
+        <form action="">
+            <input type="text" id="screen" placeholder="0">
+        </form>
+        <button type="button" onclick="display('*')" style="border-radius: 3px; background-color: rgb(68, 77, 212);">*</button>
+        <button type="button" onclick="display('/')" style="border-radius: 3px; background-color: rgb(68, 77, 212);
+        ">/</button>
+        <button type="button" onclick="display('-')" style="border-radius: 3px; background-color: rgb(68, 77, 212);
+        ">-</button>
+        <button type="button" onclick="display('+')"style="border-radius: 3px; background-color: rgb(68, 77, 212);
+        ">+</button>
+        <button type="button" onclick="display('9')" style="    background-color: rgb(2, 88, 248);">9</button>
+        <button type="button" onclick="display('8')"style="    background-color: rgb(2, 88, 248);">8</button>
+        <button type="button" onclick="display('7')"style="    background-color: rgb(2, 88, 248);">7</button>
+        <button type="button" onclick="display('6')"style="    background-color: rgb(2, 88, 248);">6</button>
+        <button type="button" onclick="display('5')"style="    background-color: rgb(2, 88, 248);">5</button>
+        <button type="button" onclick="display('4')"style="    background-color: rgb(2, 88, 248);">4</button>
+        <button type="button" onclick="display('3')"style="    background-color: rgb(2, 88, 248);">3</button>
+        <button type="button" onclick="display('2')"style="    background-color: rgb(2, 88, 248);">2</button>
+        <button type="button" onclick="display('1')"style="    background-color: rgb(2, 88, 248);">1</button>
+        <button type="button" onclick="display('0')"style="    background-color: rgb(2, 88, 248);">0</button>
+        <button type="button" onclick="display('.')"style="    background-color: rgb(2, 88, 248);">.</button>
+        <button type="button" onclick="clearScreen()" style="width: 115px; border-radius: 50px; background-color: brown;">c</button>
+        <button type="button" onclick="calculate()" style="width: 115px; border-radius: 50px;background-color: rgb(206, 130, 16);" >=</button>
+
+    </section>
+    <script>
+    let outputscreen = document.getElementById("screen");
+    function display(num){
+        outputscreen.value += num;      
+    }
+    function calculate(){
+    try {
+        let result = eval(outputscreen.value);
+        if (isNaN(result) || !isFinite(result)) {
+            throw new Error("Invalid input! Please try again.");
+        }
+        outputscreen.value = result;
+    } catch (error) {
+        alert(error.message);
+    }
+}
+
+    function clearScreen(){
+        outputscreen.value ="";
+    }
+    </script>
+</body>
+</html>
